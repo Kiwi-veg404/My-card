@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.storybook",
+    "\\src",
+    "\\stories",
+    "\\test"
+  ],
+  "PreviewInSolutionExplorer": false
+}
