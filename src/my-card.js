@@ -18,6 +18,7 @@ export class MyCard extends LitElement {
     this.description = "Join us, and HAX PSU.EDU!";
     this.imageUrl = "https://btopro.com/files/headshot603198.jpg";
     this.linkUrl = "https://hax.psu.edu";
+    this.btnDesc = "Hax In";
   }
 
   static get styles() {
@@ -49,12 +50,12 @@ export class MyCard extends LitElement {
         color: white;
         padding: 12px;
         margin: auto;
-        height: 20px;
+        min-height: 20px;
         max-width: 200px;
         text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        //overflow: hidden;
+        //text-overflow: ellipsis;
+        //white-space: nowrap;
       }
 
       .image {
@@ -70,12 +71,12 @@ export class MyCard extends LitElement {
         color: white;
         padding: 12px;
         margin: auto;
-        height: 20px;
+        min-height: 20px;
         max-width: 200px;
         text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        //overflow: hidden;
+        //text-overflow: ellipsis;
+        //white-space: nowrap;
       }
 
       .btn {
@@ -159,7 +160,7 @@ export class MyCard extends LitElement {
           </div>
          
           <a href="${this.linkUrl}">
-            <button class="btn">Hax In</button>
+            <button class="btn"> ${this.btnDesc} </button>
           </a>
         </div>
       </div>
@@ -172,6 +173,7 @@ export class MyCard extends LitElement {
       description: { type: String },
       imageUrl: { type: String },
       linkUrl: { type: String },
+      btnDesc: { type: String },
     };
   }
 }
