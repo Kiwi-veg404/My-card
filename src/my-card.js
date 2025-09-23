@@ -23,6 +23,11 @@ export class MyCard extends LitElement {
 
   static get styles() {
     return css`
+      :host{
+        display: inline-block;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+      }
       a {
         text-decoration: none;
       }
@@ -32,7 +37,6 @@ export class MyCard extends LitElement {
       }
 
       .card {
-        display: inline-block;
         background-color: black;
         border: 16px solid green;
         padding: 100px 12px;
@@ -50,7 +54,7 @@ export class MyCard extends LitElement {
         color: white;
         padding: 12px;
         margin: auto;
-        min-height: 20px;
+        height: 40px;
         max-width: 200px;
         text-align: center;
         //overflow: hidden;
@@ -71,7 +75,7 @@ export class MyCard extends LitElement {
         color: white;
         padding: 12px;
         margin: auto;
-        min-height: 20px;
+        height: 40px;
         max-width: 200px;
         text-align: center;
         //overflow: hidden;
