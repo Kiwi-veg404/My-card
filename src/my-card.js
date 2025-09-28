@@ -19,6 +19,8 @@ export class MyCard extends LitElement {
     this.imageUrl = "https://btopro.com/files/headshot603198.jpg";
     this.linkUrl = "https://hax.psu.edu";
     this.btnDesc = "Hax In";
+    this.fancy = false;
+    this.colorWhite = false;
   }
 
   static get styles() {
@@ -28,6 +30,13 @@ export class MyCard extends LitElement {
         box-sizing: border-box;
         font-family: 'Arial', sans-serif;
       }
+
+      :host([fancy]) {
+        display: inline-block;
+        border: 4px dashed purple;
+        background-color: pink;
+      }
+
       a {
         text-decoration: none;
       }
@@ -44,9 +53,9 @@ export class MyCard extends LitElement {
         height: 300px;
         max-width: 300px;
       }
-
-      .card.fancy {
-        background-color: lightblue;
+    
+      .card [colorWhite] {
+        color: white
       }
 
       .title {
@@ -148,6 +157,16 @@ export class MyCard extends LitElement {
       }
     `;
   }
+  // put this anywhere on the MyCard class; just above render() is probably good
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+  }
 
   render() {
     return html`
@@ -159,10 +178,13 @@ export class MyCard extends LitElement {
           
           <img class="image" alt="Github profile photo of the prof" src="${this.imageUrl}">
           
-          <div class="des">
-            ${this.description}
-          </div>
-         
+          <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+            <summary colorWhite> Description </summary>
+            <div class="des">
+              <slot>${this.description}</slot>
+            </div>
+          </details>
+
           <a href="${this.linkUrl}">
             <button class="btn"> ${this.btnDesc} </button>
           </a>
@@ -178,6 +200,8 @@ export class MyCard extends LitElement {
       imageUrl: { type: String },
       linkUrl: { type: String },
       btnDesc: { type: String },
+      fancy: { type: Boolean, reflect: true },
+      colorWhite: { type: Boolean, reflect: true },
     };
   }
 }
